@@ -1,0 +1,137 @@
+body {
+    background: url('https://img.freepik.com/foto-gratis/lay-flat-concepto-musica-espacio-copia_23-2148605806.jpg?t=st=1738866636~exp=1738870236~hmac=dda180cceb193bf5d1d455ad0ecf408c15a56b3d2c7142c2ad4066f9a2b3e0bf&w=826') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    text-align: center;
+ }
+/* Contenedor */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Efecto iluminado en el título */
+.animated-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff4d6d;
+    text-shadow: 0 0 10px rgba(255, 0, 76, 0.8), 0 0 20px rgba(255, 0, 76, 0.5);
+    animation: glow 1.5s infinite alternate, shake 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(255, 0, 76, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(255, 0, 76, 0.9); }
+}
+
+/* Movimiento sutil del título */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+/* Animación del subtítulo */
+.animated-subtitle {
+    font-size: 1.2rem;
+    animation: fadeIn 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* Movimiento del sobre */
+#sobre-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+#sobre {
+    width: 180px;
+    transition: transform 0.8s ease-in-out;
+}
+
+/* Efecto de apertura del sobre */
+.abierto {
+    transform: rotateX(180deg) translateY(-50px);
+}
+
+/* Animación de la carta */
+#mensaje {
+    display: none;
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%) scale(1.2);
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: cartaVolando 2s ease-out, aparecer 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes cartaVolando {
+    0% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    50% { transform: translateX(-30%) translateY(-100px) rotate(-30deg); }
+    100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+}
+
+@keyframes aparecer {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Corazones animados */
+.corazon {
+    position: absolute;
+    color: red;
+    font-size: 2rem;
+    animation: flotar 3s linear infinite;
+}
+
+@keyframes flotar {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(calc(-50vw + 100px), -120px); opacity: 0; }
+}
+/* Contenedor del mensaje */
+#mensaje {
+    display: none;
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%) scale(1.2);
+    background: white;
+    padding: 20px;
+    width: 400px; /* Aumentamos el ancho */
+    max-height: 300px; /* Más alto para mejor lectura */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    opacity: 0;
+}
+
+/* Contenedor del texto dentro del mensaje */
+#mensaje-texto {
+    max-height: 250px; /* Espacio para que el texto fluya */
+    overflow-y: hidden; /* Oculta el scroll, pero sigue funcionando */
+    text-align: justify;
+    padding-right: 10px;
+}
